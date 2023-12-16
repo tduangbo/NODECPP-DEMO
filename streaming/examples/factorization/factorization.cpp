@@ -12,9 +12,11 @@ class Factorization : public StreamingWorker {
 
         N = -1;
         if (options->IsObject() ) {
-          v8::Local<v8::Value> n_ = options->Get(New<v8::String>("n").ToLocalChecked());
+           v8::Isolate* isolate = options->GetIsolate();
+           v8::Local<v8::Context> context = isolate->GetCurrentContext();
+          v8::Local<v8::Value> n_ = options->Get(context, New<v8::String>("n").ToLocalChecked()).ToLocalChecked();
           if ( n_->IsNumber() ) {
-            N = n_->NumberValue();
+            N = n_->NumberValue(context).ToChecked();
           }
         }
 

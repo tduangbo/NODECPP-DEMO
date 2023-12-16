@@ -10,6 +10,9 @@ const factorizer = worker(addon_path, {n: 9007199254740991});
 factorizer.from.on('factor', function(factor){
     console.log("Factor:  " + factor);
 });
+factorizer.from.on('close', function(factor){
+    console.log("Factor: completed  ");
+});
 
 factorizer.from.on('error', function(e) {
     console.log(e);

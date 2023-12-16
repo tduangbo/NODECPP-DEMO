@@ -7,8 +7,8 @@
     "start": "node factorization.js"
   },
   "dependencies": {
-  	"nan": "*",
-    "through": "^2.3.8", 
-    "streaming-worker" : "file:../../dist"
+    "nan": "*",
+    "through": "^2.3.8",
+    "streaming-worker": "file:../../dist"
   }
 }
